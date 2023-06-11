@@ -1,0 +1,10 @@
+Consumir api.json
+1. Carpeta con index.html, funciones.js, datos-censales.json
+2. Input text con codigo
+3. Boton consultar
+4. Mostrar nombre municipio, nombre departamento
+5. agregar no existe
+6. cant registros que hay
+
+
+10021020
