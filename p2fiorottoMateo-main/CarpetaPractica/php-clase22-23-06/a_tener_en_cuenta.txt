@@ -1,0 +1,22 @@
+Descargar alguno de los siguientes:
+XAMPP, Nginx, Apache, Laragon.
+
+Una vez descargado (Recomiendo LARAGON Full):
+
+1. Abrir programa
+2. Tocar el boton que dice "start all".
+3. Tocar boton ROOT
+    esto lo que hace es enviarte a la carpeta raiz
+    donde tenemos que crear los archivos php,
+    sea index.php, funciones.php o como se desee.
+4. Una vez creado todo, tocar el boton "web".
+5. Se va abrir la pestaña y ya podemos empezar a editar
+   el codigo y refrescar la pagina.
+
+NOTA CLASE JUEVES: La idea era hacer 3 ejercicios
+a. El primero definir una funcion que le pasamos un array 
+    y sumar todos sus numeros
+b. El segundo es ordenar un array (con funciones de php)
+c. El tercero es eliminar los duplicados de un array (funcion php)
+
+NOTA 2: El IF y el codigo HTML lo implemente yo, los ejercicios no los piden
