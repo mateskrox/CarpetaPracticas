@@ -9,12 +9,12 @@
 <form method="POST">
   <p>Seleccione un boton</p>
   <br>
-    <input type="submit" class="button" name="sumaDeElementos" value="Sumar ARRAY">
-    <input type="submit" class="button" name="ordenAscendente" value="Ordenar ARRAY">
-    <input type="submit" class="button" name="quitarRepetidos" value="Quitar REPETIDOS">
-    <input type="submit" class="button" name="buscarIndices" value="Buscar indices">
-    <input type="submit" class="button" name="combinarImpares" value="Buscar impares en dos arrays">
-    <input type="submit" class="button" name="arrayDimensional" value="Mostrar array dimensional">
+    <input type="submit" class="button" name="sumaDeElementos" value="Sumar ARRAY (Ej 1)">
+    <input type="submit" class="button" name="ordenAscendente" value="Ordenar ARRAY (Ej 2)">
+    <input type="submit" class="button" name="quitarRepetidos" value="Quitar REPETIDOS (Ej 3)">
+    <input type="submit" class="button" name="buscarIndices" value="Buscar indices (Ej 4)">
+    <input type="submit" class="button" name="combinarImpares" value="Buscar impares en dos arrays (Ej 5)">
+    <input type="submit" class="button" name="arrayDimensional" value="Mostrar si juega en river, y en que club(Ej 6-7)">
   </form>
 </body>
 </html>
@@ -164,34 +164,68 @@
     ARRAYS ASOCIATIVOS*/
     if(isset($_POST['arrayDimensional'])) {
     $Clubes = [
-      "River" => [
-      "Jugadores" => 
-                "Armani",
-                "Borja", 
-                "Pratto",
+      "River" => 
+            [
+              "Jugadores" => [
+              "Armani",
+              "Borja",
+              "Pratto"
+            ] 
     ], 
-        "Boca" => [
-        "Jugadores" => 
-                    "Advincula",
-                    "Barco",
-                    "Villa",
-    ]];
-    
-    $Jugador="Armani";
-    $juega="";
-    $dondeJuega="";
-    $club="";
+        "Boca" => 
+                ["Jugadores" =>[ 
+                  "Advincula",
+                  "Barco",
+                  "Villa"]
+        ]
+      ];
 
-    foreach($Clubes as $Club) {
-      //JUEGA o no en river?
-      if ($Clubes['River']['Jugadores'] == $Jugador) {
-        $juega = "Este jugador juega en river";
-      } else if ($Clubes['River']['Jugadores'] != $Jugador) {
-        $juega = "Este jugador NO juega en river";
+      $jugadoresRiver = $Clubes["River"]["Jugadores"];
+      $Jugador="Barco";
+      //COMENTARIOS
+      /* Linea 166 --> defino el array multidimensional
+         Linea 167 --> Defino la Clave River
+         Linea 169 --> Defino la clave Jugadores
+         Linea 170-172 --> Defino los valores del array
+         Linea 183 --> defino un acceso facil 
+      */
+
+      //EJERCICIO 6
+      //Comprobar si el jugador juega en river 
+      if(in_array($Jugador, $jugadoresRiver)) {
+        echo "Juega en river";
+      } else {
+        echo "No juega en river";
       }
-    
+      echo "<br>";
+
+      //COMENTARIOS
+      /* Linea 195-198 --> si en el array el jugador esta incluido 
+                       en los jugadores de river que diga que si
+                       sino, no
+      */
+
+      //EJERCICIO 7
+      //COMPROBAR EL CLUB EN EL QUE JUEGA EL JUGADOR
+      foreach ($Clubes as $club => $datos) {
+        $jugadores = $datos["Jugadores"];
+        if (in_array($Jugador, $jugadores)) {
+            echo "El jugador juega en " . $club;
+            break;
+        }
     }
-    echo $juega;
-    echo $dondeJuega;
+     //COMENTARIOS
+      /* Linea 210 --> Por cada uno de los clubes le paso la
+                       variable DATOS que representa el valor
+                       asociado a la clave en el arreglo 
+                       Explicado de mejor forma, seria que
+                       club contiene a river y boca y datos
+                       contiene a jugadores
+          Linea 211 --> asigno a los jugadores (en este caso
+                        seria como acceder a $clubes["River"]["Jugadores])
+                        pero sirve para recorrer las dos claves en el foreach
+          En las lineas siguientes compruebo donde esta el jugador dentro del array
+          de jugadores y muestro el nombre del club.
+      */
   }
 ?>
